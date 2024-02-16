@@ -5,14 +5,13 @@ import './App.css';
 import Main from './Main.tsx';
 import Header from './Header.tsx';
 import Footer from './Footer.tsx';
-import SelectedBeast from './SelectedProperty.tsx';
+import SelectedProperty from './SelectedProperty.tsx';
 import InputField from './InputField.tsx';
 
 export interface IProperty {
-  image_url: string;
+  imageUrl: string;
   title: string;
   description: string;
-  keyword: string;
   rooms: number;
 }
 
@@ -45,9 +44,10 @@ const App: React.FC = () => {
     <Container fluid className="App">
       <Header title='Favorite Properties' />
       <InputField filterProperties={filterProperties}/>
+      <div className="input-field-spacing"></div>
       <Main objData={filteredObjs} showModal={showModal} />
-      <Footer title='Author: Sergii Otryshko' />
-      <SelectedBeast objData={objectData[selectedIndex]} show={show} hide={hideModal} />
+      <Footer title='Sergii Otryshko 2024' />
+      <SelectedProperty objData={objectData[selectedIndex]} show={show} hide={hideModal} />
     </Container>
   );
 };

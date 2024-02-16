@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 interface ISelectedProperty {
   title: string;
-  image_url: string;
+  imageUrl: string;
   description: string;
 }
 
@@ -23,7 +23,7 @@ const SelectedProperty: FC<ISelectedPropertyProps> = ({ show, hide, objData }) =
           <Modal.Title>{objData.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Image src={objData.image_url} alt={objData.description} fluid/>
+          <Image src={objData.imageUrl} alt={objData.description} fluid/>
           <p>{objData.description}</p>
         </Modal.Body>
         <Modal.Footer>
