@@ -7,6 +7,7 @@ interface IPropertyProps {
   title: string;
   src: string;
   alt: string;
+  rooms: number
   description: string;
   propertyIdx: number;
   showModal: (index: number) => void;

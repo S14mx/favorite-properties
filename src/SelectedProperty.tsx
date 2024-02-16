@@ -7,6 +7,7 @@ interface ISelectedProperty {
   title: string;
   imageUrl: string;
   description: string;
+  rooms: number
 }
 
 interface ISelectedPropertyProps {
@@ -24,6 +25,7 @@ const SelectedProperty: FC<ISelectedPropertyProps> = ({ show, hide, objData }) =
         </Modal.Header>
         <Modal.Body>
           <Image src={objData.imageUrl} alt={objData.description} fluid/>
+          <p>Rooms: {objData.rooms}</p>
           <p>{objData.description}</p>
         </Modal.Body>
         <Modal.Footer>
