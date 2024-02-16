@@ -2,13 +2,13 @@ import React, { useState, ChangeEvent } from 'react';
 import objectData from './data.json';
 import Container from 'react-bootstrap/Container';
 import './App.css';
-import Main from './Main.tsx';
-import Header from './Header.tsx';
-import Footer from './Footer.tsx';
-import SelectedBeast from './SelectedProperty.tsx';
-import InputField from './InputField.tsx';
+import Main from './Main';
+import Header from './Header';
+import Footer from './Footer';
+import SelectedBeast from './SelectedBeast';
+import InputField from './InputField';
 
-export interface IProperty {
+interface Beast {
   image_url: string;
   title: string;
   description: string;
@@ -19,18 +19,18 @@ export interface IProperty {
 const App: React.FC = () => {
   const [show, setShow] = useState<boolean>(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [filteredObjs, setFilteredObjs] = useState<IProperty[]>(objectData);
+  const [filteredObjs, setFilteredObjs] = useState<Beast[]>(objectData);
 
   const hideModal = (): void => {
     setShow(false);
   };
 
-  const showModal = (propertyIdx: number): void => {
+  const showModal = (beastIdx: number): void => {
     setShow(true);
-    setSelectedIndex(propertyIdx);
+    setSelectedIndex(beastIdx);
   };
 
-  const filterProperties = (event: ChangeEvent<HTMLSelectElement>): void => {
+  const filterBeasts = (event: ChangeEvent<HTMLSelectElement>): void => {
     const selection = parseInt(event.target.value);
     let filteredObjs;
     if (selection) {
@@ -43,8 +43,8 @@ const App: React.FC = () => {
 
   return (
     <Container fluid className="App">
-      <Header title='Favorite Properties' />
-      <InputField filterProperties={filterProperties}/>
+      <Header title='Horned Animals' />
+      <InputField filterBeasts={filterBeasts}/>
       <Main objData={filteredObjs} showModal={showModal} />
       <Footer title='Author: Sergii Otryshko' />
       <SelectedBeast objData={objectData[selectedIndex]} show={show} hide={hideModal} />

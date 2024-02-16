@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-interface FooterProps {
+interface IFooterProps {
   title: string;
 }
 
-const Footer: FC<FooterProps> = ({ title }) => {
+const Footer: FC<IFooterProps> = ({ title }) => {
   return (
     <>
       <p>{title}</p>

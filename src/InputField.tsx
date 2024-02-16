@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 
-class InputField extends React.Component {
-  render() {
-    return (
-      <Container>
-        <Form>
-          <Form.Label>Filter by number of rooms</Form.Label>
-          <Form.Select>
-            <option value='All'>All</option>
-            <option value='1'>1 Room</option>
-            <option value='2'>2 Rooms</option>
-            <option value='3'>3 Rooms</option>
-            <option value='4'>4 Rooms</option>
-          </Form.Select>
-        </Form>
-      </Container>
-    );
-  }
+interface IInputFieldProps {
+  filterProperties: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+const InputField: FC<IInputFieldProps> = ({ filterProperties }) => {
+  return (
+    <Container>
+      <Form>
+        <Form.Label>Filter by number of rooms</Form.Label>
+        <Form.Select onChange={filterProperties}>
+          <option value='All'>All</option>
+          <option value='1'>1 room</option>
+          <option value='2'>2 rooms</option>
+          <option value='3'>3 rooms</option>
+          <option value='4'>4 rooms</option>
+        </Form.Select>
+      </Form>
+    </Container>
+  );
 }
 
 export default InputField;

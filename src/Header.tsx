@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-interface HeaderProps {
+interface IHeaderProps {
   title: string;
 }
 
-const Header: FC<HeaderProps> = ({ title }) => {
+const Header: FC<IHeaderProps> = ({ title }) => {
   return (
     <>
       <h1>{title}</h1>
