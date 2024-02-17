@@ -55,7 +55,7 @@ const App: React.FC = () => {
   // Filter by number of rooms functionality
   const filterProperties = (event: ChangeEvent<HTMLSelectElement>): void => {
     const selection = parseInt(event.target.value);
-    let filteredObjs;
+    let filteredObjs: IProperty[];
     if (selection) {
       filteredObjs = data.filter(({rooms}) => rooms === selection);
       setFilteredObjs(filteredObjs);
