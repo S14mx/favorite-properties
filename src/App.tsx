@@ -8,6 +8,7 @@ import Main from './Main.tsx';
 import SelectedProperty from './SelectedProperty.tsx';
 import objectData from './data.json';
 import { getDescriptionFromOpenAI } from './getDescriptionFromOpenAI.ts';
+import Spinner from 'react-bootstrap/Spinner';
 
 export interface IProperty {
   imageUrl: string;
@@ -66,7 +67,7 @@ const App: React.FC = () => {
   return (
     <Container fluid className="App">
       <Header title='Favorite Properties' />
-      {loading? <p>LOADING</p> : (
+      {loading? <Spinner animation="border"/> : (
         <>
           <InputField filterProperties={filterProperties}/>
           <div className="input-field-spacing"></div>
